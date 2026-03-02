@@ -11,36 +11,16 @@ services:
       - key: PORT
         value: 10000
       - key: DB_HOST
-        fromDatabase:
-          name: ged-db
-          property: host
+        value: ""
       - key: DB_PORT
-        fromDatabase:
-          name: ged-db
-          property: port
+        value: "3306"
       - key: DB_NAME
-        fromDatabase:
-          name: ged-db
-          property: database
+        value: "ged_db"
       - key: DB_USER
-        fromDatabase:
-          name: ged-db
-          property: user
+        value: "render"
       - key: DB_PASSWORD
-        fromDatabase:
-          name: ged-db
-          property: password
+        value: ""
       - key: JWT_SECRET
         generateValue: true
       - key: FRONTEND_URL
         value: https://your-frontend-app.onrender.com
-
-  - type: mysql
-    name: ged-db
-    region: paris
-    plan: free
-    envVars:
-      - key: MYSQL_DATABASE
-        value: ged_db
-      - key: MYSQL_ROOT_PASSWORD
-        generateValue: true
